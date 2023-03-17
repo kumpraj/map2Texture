@@ -4,24 +4,6 @@ let Location = require('../models/location.model');
 // creates a new router instance using the Router() function
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('<h1>Map2Texture</h1>');
-    
-});
-
-router.get('/about',(req,res) => {
-    // Location.find()
-    // .then(locations => res.json(locations))
-    // .catch((err) => { res.status(400).json('Error: '+ err)})
-    res.send('<h1>About Page</h1>')
-})
-
-router.get('/getLocations',(req,res) => {
-    Location.find()
-    .then(locations => res.json(locations))
-    .catch((err) => { res.status(400).json('Error: '+ err)})
-    
-})
 
 const getLocations = async (req,res) => {
     try {
@@ -39,7 +21,7 @@ const getLocations = async (req,res) => {
         
         res.status(400).json({
             success: false,
-            message: "Error in getTodos controller",
+            message: "Error in getting all locations",
         }) 
     }
 }
@@ -78,27 +60,16 @@ const addLocation = async (req,res) => {
     }
 }
 
-router.post('/addLocation', addLocation);
+router.get('/', (req, res) => {
+    res.send('<h1>Map2Texture</h1>');
+    
+});
 
-/* 
-router.post('/addLocation', (req,res) => {
-    const latitude = req.body.latitude;
-    const longitude = req.body.longitude;
-
-    const newLocation = new Location({ latitude, longitude });
-
-    newLocation.save()
-    .then(() => {
-        res.json({
-            newLocation,
-            message: "Location Added"
-        })
-    })
-    .catch((err => { res.status(400).json('Error: '+err)}))
+router.get('/about',(req,res) => {
+    res.send('<h1>About Page</h1>')
 })
- 
-*/
-
+router.post('/getLocations', getLocations);
+router.post('/addLocation', addLocation);
 
 
 module.exports = router;
