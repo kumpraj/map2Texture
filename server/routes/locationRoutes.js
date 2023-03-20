@@ -16,7 +16,7 @@ const getLocations = async (req,res) => {
             locations
         })
     } catch (error) {
-        console.log("Error while fetchin locations");
+        console.log("Error while fetching locations");
         console.log("Error: ",error);
         
         res.status(400).json({
@@ -68,7 +68,7 @@ router.get('/', (req, res) => {
 router.get('/about',(req,res) => {
     res.send('<h1>About Page</h1>')
 })
-router.post('/getLocations', getLocations);
+router.get('/getLocations', getLocations);
 router.post('/addLocation', addLocation);
 
 

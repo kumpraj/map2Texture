@@ -1,0 +1,37 @@
+h1{
+    text-align: center;
+}
+
+#loc{
+    border: 2px solid grey;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#mapBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    margin: 20px;
+    width: 135px;
+    height: 40px;
+    background-color: blueviolet;
+    
+}
+
+button:hover {
+    /* opacity: 0.7; */
+    background-color: white;
+    color: blueviolet;
+}
+
+img{
+    margin-top: 20px;
+    width: 700px;
+    height: 400px;
+}
